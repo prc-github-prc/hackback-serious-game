@@ -1,1 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Mails</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            height: 100vh;
+            color: black;
+        }
+
+        .sidebar {
+            width: 150px;
+            background-color: black;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        .sidebar h2 {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        .sidebar .menu-item {
+            margin: 10px 0;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.2s ease;
+        }
+
+        .sidebar .menu-item:hover {
+            background-color: #4b5c72;
+        }
+
+        .mailbox {
+            display: flex;
+            flex-direction: column;
+            width: 150px;
+            border-right: 1px solid #ddd;
+            overflow-y: auto;
+        }
+
+        .mail-item {
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+
+        .mail-item .sender {
+            font-weight: bold;
+        }
+
+        .mail-item .subject {
+            color: #555;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+
+        .mail-item .time {
+            font-size: 0.8em;
+            color: #888;
+            text-align: right;
+        }
+
+        .email-content {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .email-header {
+            margin-bottom: 20px;
+        }
+
+        .email-header h3 {
+            margin-bottom: 10px;
+        }
+
+        .email-header .details {
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .email-body {
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>Mailbox</h2>
+        <div class="menu-item">Inbox</div>
+        <div class="menu-item">Sent</div>
+        <div class="menu-item">Trash</div>
+    </div>
+
+    <!-- Mail List -->
+    <div class="mailbox">
+        <div class="mail-item">
+            <div class="sender">Net Admin</div>
+            <div class="subject">About the cyberattack</div>
+            <div class="time">2:30 PM</div>
+        </div>
+    </div>
+
+    <!-- Email Content -->
+    <div class="email-content">
+        <div class="email-header">
+            <h3>About the cyberattack</h3>
+            <div class="details">From: Net Admin &lt;admin@evilcorp.com&gt;<br>To: You <br>Date: Today, 2:30 PM</div>
+        </div>
+        <div class="email-body">
+            <p>Dear assistant,</p>
+            <p>As you know, our company have been hacked recently. It is terrible. And because of that i receive a lot of pressure from the boss, who is really angry.</p>
+            <p>Now that you know that, you have a really important mission : investigate about the cyber-criminals by hacking them back.</p>
+            <br>
+            <p>I can't provide you a lot of informations, all i have is a strange string which was found in the log files :</p>
+            <p>7072632d6769746875622d7072632e6769746875622e696f2f6861636b6261636b2d736572696f75732d67616d652f312e68746d6c</p>
+        </div>
+    </div>
+
+</body>
+</html>
 
