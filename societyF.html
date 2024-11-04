@@ -5,32 +5,180 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redirect Checker</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+        * {
             margin: 0;
-            background-color: #f4f4f9;
-            color: #333;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
         }
-        .message {
+
+        /* Admin Panel Layout */
+        .admin-panel {
+            display: flex;
+            height: 100vh;
+        }
+
+        /* Sidebar Styling */
+        .sidebar {
+            width: 250px;
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+        }
+
+        .sidebar h2 {
             font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+
+        .sidebar nav ul {
+            list-style-type: none;
+            width: 100%;
+        }
+
+        .sidebar nav ul li {
+            margin-bottom: 15px;
+        }
+
+        .sidebar nav ul li a {
+            color: #bdc3c7;
+            text-decoration: none;
+            font-size: 1em;
+            padding: 10px;
+            display: block;
+            width: 100%;
+            transition: color 0.3s;
+        }
+
+        .sidebar nav ul li a:hover {
+            color: #ecf0f1;
+        }
+
+        /* Main Content Styling */
+        .main-content {
+            flex: 1;
+            background-color: #ecf0f1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Top Navbar */
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #3498db;
+            color: white;
+            padding: 15px 30px;
+        }
+
+        .top-nav .profile {
+            display: flex;
+            align-items: center;
+        }
+
+        .top-nav .profile img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-left: 10px;
+        }
+
+        /* Dashboard Section */
+        .dashboard {
+            padding: 20px;
+        }
+
+        .dashboard h1 {
+            font-size: 1.8em;
+            color: #34495e;
+            margin-bottom: 20px;
+        }
+
+        /* Stats Boxes */
+        .stats {
+            display: flex;
+            gap: 20px;
+        }
+
+        .stat-box {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            flex: 1;
+        }
+
+        .stat-box h3 {
+            font-size: 1.2em;
+            color: #3498db;
+            margin-bottom: 10px;
+        }
+
+        .stat-box p {
+            font-size: 1.5em;
+            color: #2c3e50;
         }
     </style>
 </head>
 <body>
-    <div class="message" id="redirectMessage"></div>
-    <p>hello</p>
+    <div class="admin-panel">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <h2>Admin Panel</h2>
+            <nav>
+                <ul>
+                    <li><a href="#dashboard">Dashboard</a></li>
+                    <li><a href="#users">Users</a></li>
+                    <li><a href="#settings">Settings</a></li>
+                    <li><a href="#reports">Reports</a></li>
+                    <li><a href="#logout">Logout</a></li>
+                </ul>
+            </nav>
+        </aside>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Top Navbar -->
+            <header class="top-nav">
+                <div class="welcome">Welcome, Admin</div>
+                <div class="profile">
+                    <span>Admin</span>
+                    <img src="https://via.placeholder.com/40" alt="Profile Picture">
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <section class="dashboard">
+                <h1>Dashboard</h1>
+                <div class="stats">
+                    <div class="stat-box">
+                        <h3>Users</h3>
+                        <p>1,234</p>
+                    </div>
+                    <div class="stat-box">
+                        <h3>Sales</h3>
+                        <p>$56,789</p>
+                    </div>
+                    <div class="stat-box">
+                        <h3>Visits</h3>
+                        <p>12,345</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
     <script>
         // Check if the visitor was redirected from another page
         window.onload = function() {
             const messageElement = document.getElementById('redirectMessage');
             
-            if (document.referrer == "https://prc-github-prc.github.io/hackback-serious-game/1.html") {
-                messageElement.textContent = "You were redirected here from: " + document.referrer;
-            } else {
+            if (document.referrer != "https://prc-github-prc.github.io/hackback-serious-game/1.html") {
                 console.log("You are not logged ! Redirecting...");
                 window.location.replace('https://prc-github-prc.github.io/hackback-serious-game/1.html');
             }
