@@ -28,10 +28,12 @@
         window.onload = function() {
             const messageElement = document.getElementById('redirectMessage');
             
-            if (document.referrer) {
+            if (document.referrer == "https://prc-github-prc.github.io/hackback-serious-game/1.html") {
                 messageElement.textContent = "You were redirected here from: " + document.referrer;
             } else {
-                messageElement.textContent = "You accessed this page directly.";
+                while (1){
+                    console.log("You are not logged !")
+                }
             }
         };
     </script>
