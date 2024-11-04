@@ -10,9 +10,11 @@
             padding: 0;
             box-sizing: border-box;
             font-family: Arial, sans-serif;
+            background-color: #12191f;
         }
         p,li{
             color:white;
+            background-color: black;
         }
 
         /* Admin Panel Layout */
@@ -74,7 +76,7 @@
             justify-content: space-between;
             align-items: center;
             background-color: red;
-            color: black;
+            color: white;
             padding: 15px 30px;
         }
 
@@ -115,6 +117,11 @@
         #questionArea{
             background-color: black;
             color:white;
+        }
+        #answer {
+            width : 130px;
+            height : 30px;
+            color:green;
         }
 
 
@@ -189,8 +196,14 @@
                     <li>5 : Mr.R AND Tyrell</li>
                     <li>6 : Darlenne AND Elliot</li>
                     <li>7 : MR.R AND Elliot</li>
+                    <li>8 : Darlenne AND Tyrell</li>
                 </ul>
             </div>
+
+            <p><br>Now that you know yourself, please enter in the input below the binary (on 2 bytes) of the number of the right answer : </p>
+            <input id="answer">
+            <p><br><br>Check button : </p>
+            <button onclick="checkAnswer()">Is everything false ?</button>
         </div>
     </div>
     
@@ -210,9 +223,20 @@
             }
         }
 
+        function checkAnswer(){
+            let answer = document.getElementById("answer").value;
+            if (answer == "0000000000000111"){
+                window.location.replace('https://prc-github-prc.github.io/hackback-serious-game/final.html');
+            }
+            else{
+                alert("To find peace inside, you must work on yourself... or maybe just revise binary !");
+            }
+        }
+
         // Check if the visitor was redirected from another page
         window.onload = function() {
             const messageElement = document.getElementById('redirectMessage');
+            
             if (document.referrer != "https://prc-github-prc.github.io/hackback-serious-game/1.html") {
                 console.log("You are not logged ! Redirecting...");
                 window.location.replace('https://prc-github-prc.github.io/hackback-serious-game/1.html');
