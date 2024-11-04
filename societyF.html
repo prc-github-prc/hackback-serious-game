@@ -31,9 +31,8 @@
             if (document.referrer == "https://prc-github-prc.github.io/hackback-serious-game/1.html") {
                 messageElement.textContent = "You were redirected here from: " + document.referrer;
             } else {
-                while (1){
-                    /**/
-                }
+                console.log("You are not logged ! Redirecting...");
+                window.location.replace('https://prc-github-prc.github.io/hackback-serious-game/1.html');
             }
         };
     </script>
